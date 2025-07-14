@@ -57,10 +57,9 @@ require("toggleword").setup {
 }
 ```
 
-```
 ### Usage
 
+```
 Place your cursor on a supported word and press <leader>tt.
-
 If the word matches a toggle pair, it will be replaced with the opposite.
 ```
