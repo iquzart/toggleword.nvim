@@ -45,19 +45,15 @@ use {
 }
 ```
 
-```
-
 ### Supported words
 
 ```
-
 - true ⇄ false
 - on ⇄ off
 - enabled ⇄ disabled
 - yes ⇄ no
 - up ⇄ down
-
-````
+```
 
 ### Custom Toggle Pairs
 
@@ -72,7 +68,7 @@ require("toggleword").setup {
     ["active"] = "inactive",
   }
 }
-````
+```
 
 ### Usage
 
