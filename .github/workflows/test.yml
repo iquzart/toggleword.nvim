@@ -23,4 +23,4 @@ jobs:
 
       - name: Run busted tests
         run: |
-          LUA_PATH="./lua/?.lua;./lua/?/init.lua;;" busted --verbose --output=plain spec
+          LUA_PATH="./lua/?.lua;./lua/?/init.lua;;" busted --verbose spec
