@@ -19,7 +19,9 @@ A minimal Neovim plugin to toggle boolean-like words under your cursor.
 - Configurable keybinding.
 - Custom toggle pairs supported.
 
-## Installation (Lazy.nvim)
+## Installation
+
+### Lazy.nvim:
 
 ```lua
 {
@@ -32,15 +34,30 @@ A minimal Neovim plugin to toggle boolean-like words under your cursor.
 }
 ```
 
+### packer.nvim:
+
+```lua
+use {
+  "yourname/toggleword.nvim",
+  config = function()
+    require("toggleword").setup()
+  end,
+}
+```
+
+```
+
 ### Supported words
 
 ```
+
 - true ⇄ false
 - on ⇄ off
 - enabled ⇄ disabled
 - yes ⇄ no
 - up ⇄ down
-```
+
+````
 
 ### Custom Toggle Pairs
 
@@ -55,7 +72,7 @@ require("toggleword").setup {
     ["active"] = "inactive",
   }
 }
-```
+````
 
 ### Usage
 
