@@ -9,7 +9,7 @@ A minimal Neovim plugin to toggle boolean-like words under your cursor.
 <p align="center">
   <img src="https://img.shields.io/badge/built%20with-neovim%20lua-blue.svg?style=flat-square" />
   <img src="https://img.shields.io/github/license/iquzart/toggleword.nvim?style=flat-square" />
-  <!-- <img src="https://github.com/iquzart/toggleword.nvim/actions/workflows/test.yml/badge.svg" /> -->
+  <img src="https://github.com/iquzart/toggleword.nvim/actions/workflows/test.yml/badge.svg" />
 </p>
 
 ## Features
