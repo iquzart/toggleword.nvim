@@ -1,5 +1,5 @@
 <h1 align="center">
-🔁 toggleword.nvim
+ toggleword.nvim
 </h1>
 
 <p align="center">
@@ -9,7 +9,7 @@ A minimal Neovim plugin to toggle boolean-like words under your cursor.
 <p align="center">
   <img src="https://img.shields.io/badge/built%20with-neovim%20lua-blue.svg?style=flat-square" />
   <img src="https://img.shields.io/github/license/iquzart/toggleword.nvim?style=flat-square" />
-  <img src="https://github.com/iquzart/toggleword.nvim/actions/workflows/test.yml/badge.svg" />
+  <!-- <img src="https://github.com/iquzart/toggleword.nvim/actions/workflows/test.yml/badge.svg" /> -->
 </p>
 
 ## Features
@@ -34,14 +34,12 @@ A minimal Neovim plugin to toggle boolean-like words under your cursor.
 
 ### Supported words
 
+```
 - true ⇄ false
 - on ⇄ off
 - enabled ⇄ disabled
 - yes ⇄ no
 - up ⇄ down
-
-```
-
 ```
 
 ### Custom Toggle Pairs
@@ -57,7 +55,9 @@ require("toggleword").setup {
     ["active"] = "inactive",
   }
 }
+```
 
+```
 ### Usage
 
 Place your cursor on a supported word and press <leader>tt.
