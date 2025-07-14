@@ -18,8 +18,9 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y lua5.1 luarocks
-          luarocks install busted
+          luarocks install busted --local
+          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
 
       - name: Run busted tests
         run: |
-          busted spec
+          LUA_PATH="./lua/?.lua;./lua/?/init.lua;;" busted --verbose spec
