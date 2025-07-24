@@ -53,6 +53,22 @@ use {
 - enabled ⇄ disabled
 - yes ⇄ no
 - up ⇄ down
+- start ⇄ stop
+- open ⇄ close
+- allow ⇄ deny
+- accept ⇄ reject
+- read ⇄ write
+- push ⇄ pull
+- inbound ⇄ outbound
+- public ⇄ private
+- online ⇄ offline
+- local ⇄ remote
+- master ⇄ slave
+- primary ⇄ replica
+- active ⇄ passive
+- manual ⇄ automatic
+
+- prod ⇄ uat ⇄ dev ⇄ preprod (cyclical)
 ```
 
 ### Custom Toggle Pairs
