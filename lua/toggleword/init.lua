@@ -1,30 +1,71 @@
 local M = {}
 
+-- Extended toggle map with multi-value cycling support
 M.toggles = {
-	["true"] = "false",
-	["false"] = "true",
-	["on"] = "off",
-	["off"] = "on",
-	["enabled"] = "disabled",
-	["disabled"] = "enabled",
-	["yes"] = "no",
-	["no"] = "yes",
-	["up"] = "down",
-	["down"] = "up",
+	["true"] = { "false" },
+	["false"] = { "true" },
+	["on"] = { "off" },
+	["off"] = { "on" },
+	["enabled"] = { "disabled" },
+	["disabled"] = { "enabled" },
+	["yes"] = { "no" },
+	["no"] = { "yes" },
+	["up"] = { "down" },
+	["down"] = { "up" },
+	["start"] = { "stop" },
+	["stop"] = { "start" },
+	["open"] = { "close" },
+	["close"] = { "open" },
+	["allow"] = { "deny" },
+	["deny"] = { "allow" },
+	["accept"] = { "reject" },
+	["reject"] = { "accept" },
+	["read"] = { "write" },
+	["write"] = { "read" },
+	["push"] = { "pull" },
+	["pull"] = { "push" },
+	["inbound"] = { "outbound" },
+	["outbound"] = { "inbound" },
+	["public"] = { "private" },
+	["private"] = { "public" },
+	["online"] = { "offline" },
+	["offline"] = { "online" },
+	["local"] = { "remote" },
+	["remote"] = { "local" },
+	["master"] = { "slave" },
+	["slave"] = { "master" },
+	["primary"] = { "replica" },
+	["replica"] = { "primary" },
+	["active"] = { "passive" },
+	["passive"] = { "active" },
+	["manual"] = { "automatic" },
+	["automatic"] = { "manual" },
+
+	-- Environments toggle
+	["prod"] = { "uat", "dev", "preprod" },
+	["uat"] = { "dev", "preprod", "prod" },
+	["dev"] = { "preprod", "prod", "uat" },
+	["preprod"] = { "prod", "uat", "dev" },
 }
 
---- Toggle the word under the cursor if it's in the toggle list
+-- Toggle word under cursor, cycling through defined alternates
 function M.toggle_word()
 	local word = vim.fn.expand("<cword>")
-	local replacement = M.toggles[word]
-	if replacement then
-		vim.cmd("normal! ciw" .. replacement)
-	else
-		vim.notify("No toggle match for: " .. word, vim.log.levels.WARN)
+	for key, values in pairs(M.toggles) do
+		if word == key then
+			vim.cmd("normal! ciw" .. values[1])
+			return
+		elseif vim.tbl_contains(values, word) then
+			local idx = vim.fn.index(values, word)
+			local next_idx = (idx + 1) % #values
+			vim.cmd("normal! ciw" .. values[next_idx + 1])
+			return
+		end
 	end
+	vim.notify("No toggle match for: " .. word, vim.log.levels.WARN)
 end
 
---- Setup keybindings and allow custom toggle pairs
+-- Optional setup: override toggles or keybinding
 -- @param opts table|nil: { key = "<leader>tt", toggles = table }
 function M.setup(opts)
 	opts = opts or {}
