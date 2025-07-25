@@ -2,28 +2,41 @@ local M = {}
 
 -- Toggle groups (list format, instead of key-value)
 M.toggle_groups = {
+	-- Boolean toggle group
 	{ "true", "false" },
+	{ "yes", "no" },
 	{ "on", "off" },
 	{ "enabled", "disabled" },
-	{ "yes", "no" },
-	{ "up", "down" },
+
+	-- Status and activity toggle group
 	{ "start", "stop" },
-	{ "open", "close" },
-	{ "allow", "deny" },
-	{ "accept", "reject" },
-	{ "read", "write" },
-	{ "push", "pull" },
-	{ "inbound", "outbound" },
-	{ "public", "private" },
-	{ "online", "offline" },
-	{ "local", "remote" },
-	{ "master", "slave" },
-	{ "primary", "replica" },
 	{ "active", "passive" },
 	{ "manual", "automatic" },
 
-	-- Environment cycle group
+	-- Directional toggle group
+	{ "up", "down" },
+	{ "inbound", "outbound" },
+	{ "push", "pull" },
+	{ "read", "write" },
+
+	-- State/visibility toggle group
+	{ "open", "close" },
+	{ "online", "offline" },
+	{ "public", "private" },
+
+	-- Control toggle group
+	{ "allow", "deny" },
+	{ "accept", "reject" },
+
+	-- Environment toggle group
 	{ "prod", "uat", "dev", "preprod" },
+
+	-- Location toggle group
+	{ "local", "remote" },
+
+	-- Role toggle group
+	{ "master", "slave" },
+	{ "primary", "replica" },
 }
 
 function M.toggle_word()
