@@ -26,11 +26,9 @@ A minimal Neovim plugin to toggle boolean-like words under your cursor.
 ```lua
 {
   "iquzart/toggleword.nvim",
-  config = function()
-    require("toggleword").setup {
-      key = "<leader>tt" -- optional, defaults to <leader>tt
-    }
-  end
+   opts = {
+     key = "<leader>tt" -- optional, defaults to <leader>tt,
+   }
 }
 ```
 
@@ -78,10 +76,10 @@ You can override the default list:
 ```lua
 require("toggleword").setup {
   key = "<leader>tw",
-  toggles = {
-    ["start"] = "stop",
-    ["open"] = "close",
-    ["active"] = "inactive",
+  toggle_groups = {
+    {"start", "stop"},
+    {"open",  "close"},
+    {"active", "inactive"},
   }
 }
 ```
